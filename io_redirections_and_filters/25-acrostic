@@ -1,0 +1,2 @@
+#!/bin/bash
+for file in "$@"; do decoded=""; while IFS= read -r line; do decoded="$decoded${line:0:1}"; done < "$file"; echo -n "$decoded "; done; echo
