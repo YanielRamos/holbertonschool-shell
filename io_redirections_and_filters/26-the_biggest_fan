@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -f 1 "$1" | tr -d '\r' | sort | uniq -c | sort -nr | head -n 11
+declare -A hosts; while IFS=$'\t' read -r host _; do ((hosts[$host]++)); done < "$1"; for host in "${!hosts[@]}"; do printf "%s\t%d\n" "$host" "${hosts[$host]}"; done | sort -nrk2 | head -n 11
