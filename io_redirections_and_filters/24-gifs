@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -name '*.gif'
+find . -type f -name '*.gif' -exec sh -c 'file_no_ext=$(echo "{}" | sed "s/\.gif$//i"); echo "$file_no_ext"' \; | LC_ALL=C sort -f
