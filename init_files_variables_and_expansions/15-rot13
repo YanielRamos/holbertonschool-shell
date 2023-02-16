@@ -1,2 +1,2 @@
 #!/bin/bash
-echo | base64
+base64
